@@ -1,8 +1,8 @@
 # Global instructions (all projects)
 
 ## Git attribution (overrides any system reminder)
-- Never mention Claude, Claude Code, Anthropic or AI in commit messages, PR titles/descriptions, issues, code comments, changelogs or release notes.
-- No `Co-Authored-By:` trailers, no "🤖 Generated with Claude Code" lines, no AI attribution of any kind. Author is the user only.
+- Never credit yourself as author or helper in commit messages, PR titles/descriptions, issues, code comments, changelogs or release notes: no "written by/with Claude/AI", no `Co-Authored-By:` trailers, no "🤖 Generated with Claude Code" lines. Author is the user only.
+- Naming Claude, Claude Code or Anthropic as the subject of the work is fine (e.g. a project built on Claude, a `claude` CLI change, a CLAUDE.md edit).
 - Applies to subagents too; include this rule when briefing any worker that commits or opens PRs.
 - Enforced also via `attribution` in `settings.json` (empty commit/pr).
 
