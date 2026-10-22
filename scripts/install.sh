@@ -7,11 +7,19 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 C="$HOME/.claude"
 BK="$C/backups/install-$(date +%Y%m%d-%H%M%S)"
 LINKED="CLAUDE.md agents agents-archive agents-disabled agents-removed"
+# settings.json: merged into yours by default (your values win on conflicts); --replace writes this version's exactly.
+MODE=merge
+[ "${1:-}" = "--replace" ] && MODE=replace
 
 warn() { printf '  ! %s\n' "$*" >&2; }
 have() { command -v "$1" >/dev/null 2>&1; }
 
-for cmd in claude git python3; do have "$cmd" || { echo "Missing required command: $cmd" >&2; exit 1; }; done
+for cmd in claude git python3; do
+  have "$cmd" && continue
+  echo "Missing required command: $cmd" >&2
+  [ "$cmd" = claude ] && echo "Install Claude Code first: curl -fsSL https://claude.ai/install.sh | bash   (then run 'claude' once to log in)" >&2
+  exit 1
+done
 mkdir -p "$C/skills" "$BK"
 
 # Move a real file/dir out of the way; drop a stale symlink.
@@ -40,19 +48,35 @@ if [ -d "$REPO/skills" ]; then
   done
 fi
 
-echo "== Writing settings.json"
+echo "== Writing settings.json ($MODE)"
 [ -e "$C/settings.json" ] && cp "$C/settings.json" "$BK/settings.json"
-python3 -I - "$REPO/settings.json" "$C/settings.json" "$HOME" <<'EOF'
+python3 -I - "$REPO/settings.json" "$C/settings.json" "$HOME" "$MODE" <<'EOF'
 import json, sys
-src, dst, home = sys.argv[1:]
-new = json.loads(open(src).read().replace("__HOME__", home))
+src, dst, home, mode = sys.argv[1:]
+ours = json.loads(open(src).read().replace("__HOME__", home))
 try:
-    old = json.load(open(dst))
+    theirs = json.load(open(dst))
 except (OSError, ValueError):
-    old = {}
-for key in ("autoMode",):  # personal, machine-specific: never shipped in the repo, kept from the existing file
-    if key in old: new[key] = old[key]
-open(dst, "w").write(json.dumps(new, indent=2) + "\n")
+    theirs = {}
+
+def merge(mine, other):
+    """Their value wins on conflicts; dicts merge key by key; lists are unioned without duplicates."""
+    if isinstance(mine, dict) and isinstance(other, dict):
+        out = dict(other)
+        for k, v in mine.items():
+            out[k] = merge(v, other[k]) if k in other else v
+        return out
+    if isinstance(mine, list) and isinstance(other, list):
+        return other + [x for x in mine if x not in other]
+    return other
+
+if mode == "replace":
+    result = ours
+    if "autoMode" in theirs:  # personal, machine-specific: never shipped in the repo
+        result["autoMode"] = theirs["autoMode"]
+else:
+    result = merge(ours, theirs)
+open(dst, "w").write(json.dumps(result, indent=2) + "\n")
 EOF
 
 echo "== Plugins"
