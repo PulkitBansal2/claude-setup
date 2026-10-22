@@ -1,5 +1,7 @@
 {
-  "env": {},
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
@@ -87,11 +89,6 @@
     }
   },
   "effortLevel": "low",
-  "modelSettings": {
-    "claude-opus-4-8": {
-      "effortLevel": "high"
-    }
-  },
   "pluginConfigs": {
     "savvy-progress@claude-kit": {
       "options": {

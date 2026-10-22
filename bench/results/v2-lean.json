@@ -1,0 +1,114 @@
+[
+  {
+    "task": "find",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.2407,
+    "tokens": 105179,
+    "turns": 3,
+    "seconds": 16,
+    "error": null
+  },
+  {
+    "task": "one-line-fix",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.2791,
+    "tokens": 178152,
+    "turns": 5,
+    "seconds": 18,
+    "error": null
+  },
+  {
+    "task": "multi-file-feature",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.3393,
+    "tokens": 268126,
+    "turns": 7,
+    "seconds": 48,
+    "error": null
+  },
+  {
+    "task": "unclear-bug",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.3023,
+    "tokens": 220513,
+    "turns": 7,
+    "seconds": 27,
+    "error": null
+  },
+  {
+    "task": "docs",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.3139,
+    "tokens": 259980,
+    "turns": 7,
+    "seconds": 42,
+    "error": null
+  },
+  {
+    "task": "review",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.2817,
+    "tokens": 178517,
+    "turns": 5,
+    "seconds": 18,
+    "error": null
+  },
+  {
+    "task": "cli-flag",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.2805,
+    "tokens": 146365,
+    "turns": 5,
+    "seconds": 17,
+    "error": null
+  },
+  {
+    "task": "run-tests",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.276,
+    "tokens": 177544,
+    "turns": 5,
+    "seconds": 17,
+    "error": null
+  },
+  {
+    "task": "git-commit",
+    "pass": true,
+    "agents": [],
+    "skills": [],
+    "cost_usd": 0.2444,
+    "tokens": 106021,
+    "turns": 3,
+    "seconds": 18,
+    "error": null
+  },
+  {
+    "task": "new-project",
+    "pass": true,
+    "agents": [],
+    "skills": [
+      "new-project"
+    ],
+    "cost_usd": 0.2635,
+    "tokens": 107709,
+    "turns": 4,
+    "seconds": 19,
+    "error": null
+  }
+]
