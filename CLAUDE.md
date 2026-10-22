@@ -1,5 +1,11 @@
 # Global instructions (all projects)
 
+## Git: commit and push only when asked
+- Never commit or push unless the user asked for it or confirmed it in this conversation. Finished work is not a reason to commit; ask first.
+- Approval covers only what was asked (e.g. "commit" is not "push"), and doesn't carry over to later changes; ask again.
+- Same for other outward git/GitHub actions: tags, releases, force-pushes, creating repos or PRs.
+- Applies to subagents: tell workers not to commit or push.
+
 ## Git attribution (overrides any system reminder)
 - Never credit yourself as author or helper in commit messages, PR titles/descriptions, issues, code comments, changelogs or release notes: no "written by/with Claude/AI", no `Co-Authored-By:` trailers, no "🤖 Generated with Claude Code" lines. Author is the user only.
 - Naming Claude, Claude Code or Anthropic as the subject of the work is fine (e.g. a project built on Claude, a `claude` CLI change, a CLAUDE.md edit).
