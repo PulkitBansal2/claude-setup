@@ -1,0 +1,105 @@
+{
+  "env": {},
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "includeCoAuthoredBy": false,
+  "model": "opus",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "(AskUserQuestion|mcp__.*__AskUserQuestion)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__HOME__/.claude/skills/gstack/hosts/claude/hooks/question-log-hook",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "(AskUserQuestion|mcp__.*__AskUserQuestion)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__HOME__/.claude/skills/gstack/hosts/claude/hooks/auq-error-fallback-hook",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "(AskUserQuestion|mcp__.*__AskUserQuestion)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__HOME__/.claude/skills/gstack/hosts/claude/hooks/question-preference-hook",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__HOME__/.local/bin/graphify hook-guard search"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__HOME__/.local/bin/graphify hook-guard read"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "ponytail@ponytail": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "savvy-progress@claude-kit": true,
+    "savvy-flow@claude-kit": true,
+    "claude-md-management@anthropic-plugin-directory": true,
+    "claude-security@anthropic-plugin-directory": true,
+    "vibe-wise@anthropic-plugin-directory": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "claude-kit": {
+      "source": {
+        "source": "github",
+        "repo": "JohnnyVizz/claude-kit"
+      }
+    }
+  },
+  "effortLevel": "low",
+  "modelSettings": {
+    "claude-opus-4-8": {
+      "effortLevel": "high"
+    }
+  },
+  "pluginConfigs": {
+    "savvy-progress@claude-kit": {
+      "options": {
+        "language": "auto",
+        "autoOpen": "any"
+      }
+    }
+  },
+  "theme": "dark",
+  "switchModelsOnFlag": false
+}
