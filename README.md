@@ -19,7 +19,7 @@ What the installer does:
 - Symlinks `CLAUDE.md`, `agents/` (active subagents), `agents-archive/` (inactive, restorable) and the repo's own skills into `~/.claude`, so the clone stays the source of truth.
 - Merges `settings.json` into your `~/.claude/settings.json`: your existing values (model, theme, permissions, env vars) win on conflicts, and hooks, plugins and lists are added alongside yours. Use `install.sh --replace` to write this version's settings exactly instead.
 - Adds the plugin marketplaces and installs the enabled plugins listed in `settings.json`.
-- Installs third-party skills from their upstream repos: gstack, graphify, apple-design-skill, grill-me, code-review, find-skills, impeccable, ui-ux-pro-max.
+- Installs third-party skills from their upstream repos: gstack, graphify, apple-design-skill, grill-me, code-review, find-skills, impeccable, untangle-codebase, ui-ux-pro-max.
 
 Your existing files are moved to `~/.claude/backups/install-<time>/`, never deleted. To undo:
 ```bash
