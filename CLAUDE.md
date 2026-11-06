@@ -28,7 +28,7 @@ The main thread orchestrates non-trivial work (see Orchestration: exploration pl
 ## Skills
 - Load a skill only when the task clearly matches its description. This overrides superpowers' "invoke if 1% chance" rule.
 - Before a recurring task type (review, release, migration, docs), check whether a skill matches and use it.
-- Suggest `disable-model-invocation: true` for skills meant only for manual use (`scripts/hide-manual-skills.sh` in the claude-setup repo does this for gstack).
+- Suggest `disable-model-invocation: true` for skills meant only for manual use.
 
 ## Orchestration
 For non-trivial work (exploration plus implementation plus verification, or more than ~3 files), act as orchestrator. Do small tasks directly; spawning has overhead.

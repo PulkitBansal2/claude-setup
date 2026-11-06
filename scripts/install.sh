@@ -124,7 +124,6 @@ if ! have graphify; then
 fi
 [ -d "$C/skills/graphify" ] || { have graphify && graphify install --platform claude >/dev/null || warn "graphify skill not installed"; }
 
-[ -x "$REPO/scripts/hide-manual-skills.sh" ] && "$REPO/scripts/hide-manual-skills.sh"
 
 rmdir "$BK" 2>/dev/null && echo "Done. Nothing needed backing up." || echo "Done. Replaced files saved in $BK (undo: $REPO/scripts/uninstall.sh $BK)"
 echo "Start a new Claude Code session to load the setup."

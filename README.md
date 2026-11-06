@@ -20,7 +20,6 @@ What the installer does:
 - Merges `settings.json` into your `~/.claude/settings.json`: your existing values (model, theme, permissions, env vars) win on conflicts, and hooks, plugins and lists are added alongside yours. Use `install.sh --replace` to write this version's settings exactly instead.
 - Adds the plugin marketplaces and installs the enabled plugins listed in `settings.json`.
 - Installs third-party skills from their upstream repos: gstack, graphify, apple-design-skill, grill-me, code-review, find-skills, impeccable, ui-ux-pro-max.
-- Runs `scripts/hide-manual-skills.sh`, which keeps on-purpose-only gstack skills (`/ship`, `/retro`, …) out of automatic use. They still run when you type them. Re-run it after `/gstack-upgrade`.
 
 Your existing files are moved to `~/.claude/backups/install-<time>/`, never deleted. To undo:
 ```bash
