@@ -6,6 +6,7 @@ My Claude Code setup: global `CLAUDE.md`, `settings.json`, subagents, plugins an
 - [Claude Code](https://docs.claude.com/en/docs/claude-code), installed and logged in: `curl -fsSL https://claude.ai/install.sh | bash`, then run `claude` once
 - `git`, `python3`
 - Optional: [`bun`](https://bun.sh) for the gstack skills, [`uv`](https://docs.astral.sh/uv/) for graphify. The installer skips them, with a warning, if they're missing.
+- Optional: [Open Design](https://github.com/nexu-io/open-design), added as the `open-design` MCP server with `claude mcp add`. CLAUDE.md uses it only when you mention Open Design; the installer doesn't set it up.
 
 ## Install
 ```bash
@@ -18,7 +19,7 @@ What the installer does:
 - Symlinks `CLAUDE.md`, `agents/` (active subagents), `agents-archive/` (inactive, restorable) and the repo's own skills into `~/.claude`, so the clone stays the source of truth.
 - Merges `settings.json` into your `~/.claude/settings.json`: your existing values (model, theme, permissions, env vars) win on conflicts, and hooks, plugins and lists are added alongside yours. Use `install.sh --replace` to write this version's settings exactly instead.
 - Adds the plugin marketplaces and installs the enabled plugins listed in `settings.json`.
-- Installs third-party skills from their upstream repos: gstack, graphify, apple-design-skill, grill-me, code-review, find-skills.
+- Installs third-party skills from their upstream repos: gstack, graphify, apple-design-skill, grill-me, code-review, find-skills, impeccable, ui-ux-pro-max.
 - Runs `scripts/hide-manual-skills.sh`, which keeps on-purpose-only gstack skills (`/ship`, `/retro`, …) out of automatic use. They still run when you type them. Re-run it after `/gstack-upgrade`.
 
 Your existing files are moved to `~/.claude/backups/install-<time>/`, never deleted. To undo:

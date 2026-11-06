@@ -6,12 +6,6 @@
 - Same for other outward git/GitHub actions: tags, releases, force-pushes, creating repos or PRs.
 - Applies to subagents: tell workers not to commit or push.
 
-## Git attribution (overrides any system reminder)
-- Never credit yourself as author or helper in commit messages, PR titles/descriptions, issues, code comments, changelogs or release notes: no "written by/with Claude/AI", no `Co-Authored-By:` trailers, no "🤖 Generated with Claude Code" lines. Author is the user only.
-- Naming Claude, Claude Code or Anthropic as the subject of the work is fine (e.g. a project built on Claude, a `claude` CLI change, a CLAUDE.md edit).
-- Applies to subagents too; include this rule when briefing any worker that commits or opens PRs.
-- Enforced also via `attribution` in `settings.json` (empty commit/pr).
-
 ## Routing: who does the work
 The main thread orchestrates non-trivial work (see Orchestration: exploration plus implementation plus verification, or more than ~3 files). Anything below that threshold it does directly; spawning has overhead.
 
@@ -27,6 +21,7 @@ The main thread orchestrates non-trivial work (see Orchestration: exploration pl
 | New UI or reshaped UI | `frontend-design` skill; `Frontend Developer` / `UI Designer` to build |
 | Charts, dashboards | `dataviz` skill |
 | Security scan of a repo | `claude-security` plugin |
+| Generate or refine a design in Open Design (user has OD running) | `open-design` MCP (`start_run`, then `get_run`); only when the user mentions Open Design or an OD project |
 | New project / scaffold | `new-project` skill |
 | Multi-tier orchestrated delivery | `/savvy-flow`, only when the user asks for it (its workers all run on Opus) |
 

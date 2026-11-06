@@ -4,7 +4,8 @@
   },
   "attribution": {
     "commit": "",
-    "pr": ""
+    "pr": "",
+    "sessionUrl": false
   },
   "includeCoAuthoredBy": false,
   "model": "opus",
@@ -72,7 +73,8 @@
     "savvy-flow@claude-kit": true,
     "claude-md-management@anthropic-plugin-directory": true,
     "claude-security@anthropic-plugin-directory": true,
-    "vibe-wise@anthropic-plugin-directory": true
+    "vibe-wise@anthropic-plugin-directory": true,
+    "cc-plugin-you-should-know@builtin": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -97,6 +99,7 @@
       }
     }
   },
+  "tui": "fullscreen",
   "theme": "dark",
   "switchModelsOnFlag": false
 }

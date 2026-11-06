@@ -108,6 +108,8 @@ clone_skill dickwu/apple-design-skill "" apple-design-skill
 clone_skill mattpocock/skills skills/productivity/grill-me grill-me
 clone_skill mattpocock/skills skills/engineering/code-review code-review
 clone_skill vercel-labs/skills skills/find-skills find-skills
+clone_skill pbakaus/impeccable .agents/skills/impeccable impeccable
+clone_skill nextlevelbuilder/ui-ux-pro-max-skill .claude/skills/ui-ux-pro-max ui-ux-pro-max
 
 if [ ! -d "$C/skills/gstack" ]; then
   if have bun; then
