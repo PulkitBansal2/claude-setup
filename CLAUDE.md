@@ -84,7 +84,7 @@ Context is the scarce resource. Spend it deliberately.
 - For work spanning many files, records or calls, write a script that filters and aggregates and print only the result. Don't pull each item into context one by one.
 - Never `cat` large files or dump full logs: use grep, line ranges, `head`/`tail`, `jq`. Write bulky output to a file and read it selectively. Tests and builds: surface failures and the summary line only.
 - Don't re-read files or re-run commands whose output is already in context. Don't echo large outputs back in replies.
-- You can't run slash commands. At natural breakpoints (task done, direction change, context heavy) suggest `/clear` for an unrelated next task or `/compact <focus>` to continue; suggest `/context` if the session feels sluggish. Auto-compact triggers at 70% (`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE`).
+- You can't run slash commands. At natural breakpoints (task done, direction change, context heavy) suggest `/clear` for an unrelated next task or `/compact <focus>` to continue; suggest `/context` if the session feels sluggish. Auto-compact triggers at 40% (`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE`).
 - Before context gets tight, write state that must survive (decisions, open TODOs, exact repro commands) into the reply or a scratch file.
 - Keep this file and its imports small and stable; volatile notes (dates, current task, scratch state) go in scratch files. Avoid resuming a long-idle session for a one-line question; suggest a fresh one.
 
